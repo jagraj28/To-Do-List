@@ -1,2 +1,2 @@
 # To-Do-List
-Basic to-do list webpage where users can create and delete tasks.
+Basic to-do list webpage where users can create and delete tasks using Flask.
