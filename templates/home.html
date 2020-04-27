@@ -5,14 +5,25 @@
 </head>
 <body>
     <h1>Tasks</h1>
-    <div>
-    <ul>
-        <input type='checkbox'> First Task <br>
-        <input type='checkbox'> Second Task <br>
-    </ul>
+    <div>Add a new task: 
+        <form action="{{ url_for('add') }}" method="POST">
+            <input type="text" name="todoitem">
+            <input type="submit" value="Add Item">
+        </form>
     </div>
     <div>
-        Add a new task: <input type='text'><input type='submit'>
+        <h2>Incomplete Items</h2>
+        <ul>
+            {% for todo in incomplete %}
+            <li style="font-size: 20pt">{{ todo.text }} <a href="{{ url_for('complete', id=todo.id) }}">Mark As Complete</a></li>
+            {% endfor %}    
+        </ul>
+        <h2>Completed Items</h2>
+        <ul>
+            {% for todo in complete %}
+            <li style="font-size: 20pt">{{ todo.text }}</li>
+            {% endfor %}
+        </ul>
     </div>
 </body>
 </html>
